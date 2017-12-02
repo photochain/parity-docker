@@ -1,0 +1,42 @@
+version: '2'
+
+services:
+  parity:
+    image: parity/parity:v1.7.9
+    ports:
+      - 8545:8545
+      - 30303:30303
+      - 30303:30303/udp
+
+  mainnet:
+    extends:
+      service: parity
+    volumes:
+      - mainnet:/parity-data/
+      - ./keys:/parity-data/keys
+    command: >
+      --warp
+      --pruning fast
+      --cache-size 2048
+      --base-path /parity-data
+      --jsonrpc-interface all
+      --jsonrpc-hosts all
+
+  kovan:
+    extends:
+      service: parity
+    volumes:
+      - kovan:/parity-data/
+      - ./keys:/parity-data/keys
+    command: >
+      --chain kovan
+      --warp
+      --pruning fast
+      --cache-size 2048
+      --base-path /parity-data
+      --jsonrpc-interface all
+      --jsonrpc-hosts all
+
+volumes:
+  kovan:
+  mainnet:
