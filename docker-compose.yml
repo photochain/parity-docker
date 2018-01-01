@@ -3,7 +3,6 @@ version: '2'
 services:
   parity:
     image: parity/parity:v1.7.11
-    restart: always
     volumes:
       - ./keys:/parity-data/keys
       - ./config:/parity-data/config
