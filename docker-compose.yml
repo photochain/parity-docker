@@ -17,6 +17,7 @@ services:
     volumes:
       - mainnet:/parity-data/
     command: >
+      --geth
       --config "/parity-data/config/common.toml"
 
   kovan:
@@ -25,6 +26,7 @@ services:
     volumes:
       - kovan:/parity-data/
     command: >
+      --geth
       --chain kovan
       --config "/parity-data/config/common.toml"
 
