@@ -8,8 +8,6 @@ services:
       - ./config:/parity-data/config
     ports:
       - 8545:8545
-      - 8546:8546
-      - 8180:8180
 
   mainnet:
     extends:
