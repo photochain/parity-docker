@@ -1,4 +1,4 @@
-Parity in Docker
+Parity in Docker container
 ===
 
 # Mainnet
@@ -13,11 +13,11 @@ docker-compose up mainnet
 docker-compose up kovan
 ```
 
-# Volume on external disk
+# Custom volume location (e.g. external disk)
 
-Substitue `$YOUR_PATH` with absolute path to mounted disk
+Substitue `$YOUR_PATH` with absolute path
 
 ```shell
-docker volume create --opt type=ext4 --opt device=$YOUR_PATH --opt o=bind --name parity_kovan
-docker volume create --opt type=ext4 --opt device=$YOUR_PATH --opt o=bind --name parity_mainnet
+docker volume create --opt type=ext4 --opt device=$YOUR_PATH/parity_kovan --opt o=bind --name parity_kovan
+docker volume create --opt type=ext4 --opt device=$YOUR_PATH/parity_mainnet --opt o=bind --name parity_mainnet
 ```
